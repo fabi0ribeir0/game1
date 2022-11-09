@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+@font-face {
+    font-family: 'mf';
+    src: url('../fonte/cg.ttf') format('truetype');
+}
+
 * {
     margin: 0px;
     padding: 0px;
@@ -7,18 +12,34 @@
 }
 
 .game-board {
-    width: 80%;
+    width: 98%;
     height: 500px;
-    border: 1px solid black;
     margin: auto;
     position: relative;
     overflow: hidden;
+    background-image: linear-gradient(to bottom, rgb(0, 183, 255), white);
+}
+
+#piso {
+    width: 98%;
+    margin: auto;
+    height: 60px;
+    background: lightblue url("../imagens/piso.png");
 }
 
 #score {
+    position: absolute;
     font-family: cursive;
     font-size: 1.5em;
     font-weight: bolder;
+    right: 20px;    
+}
+
+
+.cloud {
+    position: absolute;
+    width: 400px;
+    animation: cloud-animation 15s infinite linear;
 }
 
 .mario {
@@ -36,6 +57,16 @@
     bottom: 0;
     width: 80px;
     animation: pipe-animation 1.3s infinite linear;
+}
+
+@keyframes cloud-animation {
+    from {
+        right: -420px;
+    }
+
+    to {
+        right: 100%;
+    }
 }
 
 @keyframes pipe-animation {
@@ -68,4 +99,32 @@
     100% {
         bottom: -9px;
     }
+}
+
+footer {
+    margin-top: 20px;
+    padding: 20px;
+}
+
+footer > div {
+    margin: auto;
+    width: 350px;
+    border-radius: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.4em;
+    padding: 5px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.651);
+    box-shadow: 2px 2px 10px 3px rgba(0, 0, 0, 0.692);
+}
+
+footer > div:hover {
+    background-color: black;
+    color: white;
+    box-shadow: 2px 2px 10px 3px rgba(0, 0, 0, 0.692);
+}
+
+footer span {
+    font: bolder 1.4em mf ;
+   
 }
